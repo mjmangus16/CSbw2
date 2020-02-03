@@ -1,0 +1,19 @@
+{
+  "name": "csbw2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjmangus16/CSbw2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjmangus16/CSbw2/issues"
+  },
+  "homepage": "https://github.com/mjmangus16/CSbw2#readme"
+}

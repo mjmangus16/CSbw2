@@ -46,4 +46,12 @@ router.get("/getRoom/:id", (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.get("/getAllRooms", (req, res) => {
+  Rooms.find()
+    .then(rooms => {
+      res.json(rooms);
+    })
+    .catch(err => console.log(err));
+});
+
 module.exports = router;

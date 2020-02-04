@@ -17,12 +17,6 @@ const RoomSchema = new Schema({
   exits: {
     type: Object
   },
-  cooldown: {
-    type: Number
-  },
-  errs: {
-    type: Array
-  },
   messages: {
     type: Array
   },
@@ -31,6 +25,9 @@ const RoomSchema = new Schema({
   },
   terrain: {
     type: String
+  },
+  items: {
+    type: Array
   }
 });
 

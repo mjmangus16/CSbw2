@@ -25,6 +25,12 @@ const RoomSchema = new Schema({
   },
   messages: {
     type: Array
+  },
+  elevation: {
+    type: Number
+  },
+  terrain: {
+    type: String
   }
 });
 

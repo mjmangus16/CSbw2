@@ -15,7 +15,7 @@ const RoomSchema = new Schema({
     type: String
   },
   exits: {
-    type: Array
+    type: Object
   },
   cooldown: {
     type: Number

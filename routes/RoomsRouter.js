@@ -67,7 +67,7 @@ router.post("/addRoom2", (req, res) => {
           error: "That room has already been added"
         });
       } else {
-        const newRoom = new Rooms({ ...data });
+        const newRoom = new Rooms2({ ...data });
         newRoom
           .save()
           .then(saved => {

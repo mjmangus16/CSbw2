@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Rooms = require("../models/Room");
+const Rooms2 = require("../models/Room2");
 
 // @route   GET api/graph/test
 // @desc    Tests formats route
@@ -48,6 +49,38 @@ router.get("/getRoom/:id", (req, res) => {
 
 router.get("/getAllRooms", (req, res) => {
   Rooms.find()
+    .then(rooms => {
+      res.json(rooms);
+    })
+    .catch(err => console.log(err));
+});
+
+router.post("/addRoom2", (req, res) => {
+  const data = req.body;
+  console.log(data);
+
+  Rooms2.findOne({ room_id: data.room_id })
+    .then(room => {
+      if (room) {
+        console.log("test");
+        res.json({
+          error: "That room has already been added"
+        });
+      } else {
+        const newRoom = new Rooms({ ...data });
+        newRoom
+          .save()
+          .then(saved => {
+            res.json(saved);
+          })
+          .catch(err => console.log(err));
+      }
+    })
+    .catch(err => console.log(err));
+});
+
+router.get("/getAllRooms2", (req, res) => {
+  Rooms2.find()
     .then(rooms => {
       res.json(rooms);
     })

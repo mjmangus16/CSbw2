@@ -98,7 +98,7 @@ router.post("/snitchLocation", (req, res) => {
     {
       new: true
     }
-  );
+  ).then(snitch => res.json(snitch));
 });
 
 module.exports = router;

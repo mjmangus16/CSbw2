@@ -92,13 +92,8 @@ router.put("/snitchLocation", (req, res) => {
   const data = req.body;
   console.log(data);
 
-  Int.update(
-    { _id: "5e3ce4c0e7179a2f0119501f" },
-    { snitch_location: req.body.snitch_location },
-    {
-      new: true
-    }
-  ).then(snitch => res.json(snitch));
+  const content = await Int.update({ snitch_id: 1 }, { snitch_location: req.body.snitch_location });
+  res.json(content)
 });
 
 module.exports = router;

@@ -89,11 +89,15 @@ router.get("/getAllRooms2", (req, res) => {
 });
 
 router.put("/snitchLocation", (req, res) => {
-  const data = req.body;
-  console.log(data);
-
-  const content = await Int.update({ snitch_id: 1 }, { snitch_location: req.body.snitch_location });
-  res.json(content)
+  Int.findByIdAndUpdate(
+    "5e3ce4c0e7179a2f0119501f",
+    req.body,
+    { new: true },
+    (err, int) => {
+      if (err) return res.status(500).send(err);
+      return res.send(int);
+    }
+  );
 });
 
 module.exports = router;

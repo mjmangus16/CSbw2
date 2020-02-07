@@ -88,18 +88,17 @@ router.get("/getAllRooms2", (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.put("/snitchLocation", (req, res) => {
+router.post("/snitchLocation", (req, res) => {
   const data = req.body;
   console.log(data);
 
   Rooms.findOneAndUpdate(
     { snitch_id: 1 },
-    { snitch_location: req.body.snitch_location }
-  )
-    .then(location => {
-      res.json(location);
-    })
-    .catch(err => console.log(err));
+    { snitch_location: req.body.snitch_location },
+    {
+      new: true
+    }
+  );
 });
 
 module.exports = router;

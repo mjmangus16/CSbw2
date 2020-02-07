@@ -88,16 +88,11 @@ router.get("/getAllRooms2", (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.put("/snitchLocation", (req, res) => {
-  Int.findByIdAndUpdate(
-    "5e3ce4c0e7179a2f0119501f",
-    req.body,
-    { new: true },
-    (err, int) => {
-      if (err) return res.status(500).send(err);
-      return res.send(int);
-    }
-  );
+router.post("/snitchLocation", (req, res) => {
+  Int.findOne({ snitch_id: 1 }).then(snitch => {
+    snitch.snitch_location = req.body.snitch_location;
+    snitch.save();
+  });
 });
 
 module.exports = router;

@@ -89,7 +89,7 @@ router.get("/getAllRooms2", (req, res) => {
 });
 
 router.post("/snitchLocation", (req, res) => {
-  Snitch.findOne({ snitch_id: 1 })
+  Snitch.findOneAndUpdate({ snitch_id: 1 })
     .then(snitch => {
       // const newSnitch = new Snitch({ ...snitch, ...req.body });
       snitch.snitchLocation = req.body.snitchLocation;

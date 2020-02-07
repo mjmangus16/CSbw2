@@ -91,8 +91,9 @@ router.get("/getAllRooms2", (req, res) => {
 router.post("/snitchLocation", (req, res) => {
   Snitch.findOne({ snitch_id: 1 })
     .then(snitch => {
-      const newSnitch = new Snitch({ ...snitch, ...req.body });
-      newSnitch.save().then(snitch => res.json(snitch));
+      // const newSnitch = new Snitch({ ...snitch, ...req.body });
+      snitch.snitchLocation = req.body.snitchLocation;
+      snitch.save().then(updated => res.json(updated));
     })
     .catch(err => res.json(err));
 });

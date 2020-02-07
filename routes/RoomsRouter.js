@@ -88,7 +88,7 @@ router.get("/getAllRooms2", (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.post("/snitchLocation", (req, res) => {
+router.put("/snitchLocation", (req, res) => {
   const data = req.body;
   console.log(data);
 

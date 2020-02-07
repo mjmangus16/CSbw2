@@ -92,10 +92,12 @@ router.put("/snitchLocation", (req, res) => {
   const data = req.body;
   console.log(data);
 
-  Rooms.findOne({ snitch_id: 1 })
+  Rooms.findOneAndUpdate(
+    { snitch_id: 1 },
+    { snitch_location: req.body.snitch_location }
+  )
     .then(location => {
-      location.snitch_location = req.body.snitch_location;
-      location.save();
+      res.json(location);
     })
     .catch(err => console.log(err));
 });

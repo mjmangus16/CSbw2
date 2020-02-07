@@ -28,6 +28,9 @@ const Room2Schema = new Schema({
   },
   items: {
     type: Array
+  },
+  jacksInt: {
+    type: Number
   }
 });
 

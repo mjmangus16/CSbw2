@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Rooms = require("../models/Room");
 const Rooms2 = require("../models/Room2");
+const Int = require("../models/Int");
 
 // @route   GET api/graph/test
 // @desc    Tests formats route
@@ -83,6 +84,18 @@ router.get("/getAllRooms2", (req, res) => {
   Rooms2.find()
     .then(rooms => {
       res.json(rooms);
+    })
+    .catch(err => console.log(err));
+});
+
+router.post("/snitchLocation", (req, res) => {
+  const data = req.body;
+  console.log(data);
+
+  Rooms.findOne({ snitch_id: 1 })
+    .then(location => {
+      location.snitch_location = req.body.snitch_location;
+      location.save();
     })
     .catch(err => console.log(err));
 });

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const IntSchema = new Schema({
+const SnitchSchema = new Schema({
   snitch_id: {
     type: Number,
     default: 1
@@ -11,4 +11,4 @@ const IntSchema = new Schema({
   }
 });
 
-module.exports = Int = mongoose.model("int", IntSchema);
+module.exports = Snitch = mongoose.model("snitchLocation", SnitchSchema);

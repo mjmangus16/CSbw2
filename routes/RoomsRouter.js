@@ -89,8 +89,9 @@ router.get("/getAllRooms2", (req, res) => {
 });
 
 router.post("/snitchLocation", (req, res) => {
-  Snitch.findOneAndUpdate({ snitch_id: 1 }, { ...req.body })
-  .catch(err => res.json(err));
+  Snitch.findOneAndUpdate({ snitch_id: 1 }, { ...req.body }, { new: true })
+    .then(updated => res.json(updated))
+    .catch(err => res.json(err));
 });
 
 module.exports = router;

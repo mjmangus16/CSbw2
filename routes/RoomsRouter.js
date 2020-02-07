@@ -89,10 +89,13 @@ router.get("/getAllRooms2", (req, res) => {
 });
 
 router.post("/snitchLocation", (req, res) => {
-  Int.findOne({ snitch_id: 1 }).then(snitch => {
-    snitch.snitch_location = req.body.snitch_location;
-    snitch.save();
-  });
+  Int.findOne({ snitch_id: 1 })
+    .then(snitch => {
+      snitch.snitch_location = req.body.snitch_location;
+      snitch.save();
+      res.json(snitch);
+    })
+    .catch(err => res.json(err));
 });
 
 module.exports = router;

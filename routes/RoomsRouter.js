@@ -94,4 +94,10 @@ router.post("/snitchLocation", (req, res) => {
     .catch(err => res.json(err));
 });
 
+router.get("/snitchLocation", (req, res) => {
+  Snitch.findOne({ snitch_id: 1 })
+    .then(snitch => res.json(snitch))
+    .catch(err => res.json(err));
+});
+
 module.exports = router;
